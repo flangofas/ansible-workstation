@@ -1,0 +1,59 @@
+- name: Install Git
+  become: true
+  dnf:
+    name: git
+    state: present
+
+- name: Install Tig
+  become: true
+  dnf:
+    name: tig
+    state: present
+
+- name: User's fullname
+  git_config:
+    name: user.name
+    scope: global
+    value: 'Antonis Flangofas'
+
+- name: User's email
+  git_config:
+    name: user.email
+    scope: global
+    value: 'antonisflags@gmail.com'
+
+- name: Alias of git status
+  git_config:
+    name: alias.st
+    scope: global
+    value: status
+
+- name: Alias of git checkout
+  git_config:
+    name: alias.co
+    scope: global
+    value: checkout
+
+- name: Alias of git commit
+  git_config:
+    name: alias.ci
+    scope: global
+    value: commit
+
+- name: Alias of git branch
+  git_config:
+    name: alias.br
+    scope: global
+    value: branch
+
+- name: Default editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: Set default pull strategy for reconciling divergent branches
+  git_config:
+    name: pull.rebase
+    scope: global
+    value: "false"

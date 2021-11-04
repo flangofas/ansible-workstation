@@ -1,0 +1,5 @@
+- name: Apply workstation configuration
+  hosts: workstations
+
+  roles:
+    - git
